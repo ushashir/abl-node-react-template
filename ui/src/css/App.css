@@ -1,0 +1,63 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+nav#mainNav.navbar {
+  background: #00000070;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+footer.footer {
+  background-color: #000000cf;
+  padding: 23px 0;
+}
+
+.about-desc .about-desc-title {
+  font-weight: bold;
+}
+
+.ml-two {
+  margin-left: 5px;
+}
+
+@media screen and (max-width: 992px) {
+  .about-desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .about-desc .about-desc-title {
+    width: 100%;
+    display: block;
+  }
+
+  .about-desc .btn-group {
+    width: 100%;
+    margin-top: 2px;
+  }
+  .ml-two {
+    margin-left: 0px;
+  }
+
+}
