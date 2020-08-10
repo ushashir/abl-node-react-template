@@ -1,60 +1,60 @@
 import {
-          GET_ACTIVITIES,
-          ADD_ACTIVITY,
+          GET_BOOKS,
+          ADD_BOOK,
+          DELETE_BOOK,
           SET_CURRENT,
           CLEAR_CURRENT,
-          UPDATE_ACTIVITY,
-          DELETE_ACTIVITY,
-          FILTER_ACTIVITIES,
+          UPDATE_BOOK,
+          FILTER_BOOKS,
           CLEAR_FILTER,
-          ACTIVITY_ERROR,
-          CLEAR_ACTIVITIES
+          BOOK_ERROR,
+          CLEAR_BOOKS
                           } from '../types'
 
 export default (state, action) => {
   switch (action.type) {
-    case ADD_ACTIVITY:
+    case ADD_BOOK:
       return {
         ...state,
-        activities: [action.payload, ...state.activities],
+        books: [action.payload, ...state.books],
         loading: false
       }
 
-    case UPDATE_ACTIVITY:
+    case UPDATE_BOOK:
       return {
         ...state,
-        activities: state.activities.map(activity =>
-          activity._id === action.payload._id ? action.payload : activity
+        books: state.books.map(book =>
+          book._id === action.payload._id ? action.payload : book
         ),
         loading: false
       }
 
-    case GET_ACTIVITIES:
+    case GET_BOOKS:
       return {
         ...state,
-        activities: action.payload,
+        books: action.payload,
         loading: false
       }
 
-    case ACTIVITY_ERROR:
+    case BOOK_ERROR:
       return {
         ...state,
         error: action.payload
       }
 
-    case DELETE_ACTIVITY:
+    case DELETE_BOOK:
       return {
         ...state,
-        activities: state.activities.filter(
-          activity => activity._id !== action.payload
+        books: state.books.filter(
+          book => book._id !== action.payload
         ),
         loading: false
       }
 
-    case CLEAR_ACTIVITIES:
+    case CLEAR_BOOKS:
       return {
         ...state,
-        activities: null,
+        books: null,
         filtered: null,
         error: null,
         current: null
@@ -72,14 +72,18 @@ export default (state, action) => {
         current: null
       }
 
-    case FILTER_ACTIVITIES:
+    case FILTER_BOOKS:
       return {
         ...state,
-        filtered: state.books.filter(activity => {
+        filtered: state.books.filter(book => {
           const regex = new RegExp(`${action.payload}`, 'gi')
           return (
-            activity.date.match(regex) ||
-            activity.type.match(regex)
+            book.title.match(regex) ||
+            book.author.match(regex) ||
+            book.isbn.match(regex) ||
+            book.publisher.match(regex) ||
+            book.year.match(regex) ||
+            book.type.match(regex)
           )
         })
       }

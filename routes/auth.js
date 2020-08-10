@@ -1,35 +1,35 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
 const config = require('config');
-const auth = require('../middleware/adminAuth')
+const auth = require('../middleware/auth')
 const { check, validationResult } = require('express-validator');
+const User = require('../models/User');
 
-const Admin = require('../models/Admin');
 
-// @route   GET api/adminAuth
-// @desk    Get logged in admin with username and view all clients
+
+// @route   GET api/auth
+// @desk    Get - login user
 // access   Private
 router.get('/', 
         auth, 
             async (req, res) => {
     try {
-        const admin = await Admin.findById(req.admin.id).select('-password');
-        res.json(admin);
+        const user = await User.findById(req.user.id).select('-password');
+        res.json(user);
     } catch (err) {
         console.error(err.message);
         res.status(500).send('Server Error');
     }
     });
 
-// @route   POST api/adminAuth
-// @desk    Auth admin and get token
+// @route   POST api/auth
+// @desk    Auth user and get token
 // access   Public
 router.post(
     '/', 
     [
-    check('userName', 'Please enter a valid user name').exists(),
+    check('email', 'Please enter a valid email').exists(),
     check('password', 'Password is required').exists()
     ], 
     async (req, res) => {
@@ -38,23 +38,23 @@ router.post(
         return res.status(400).json({ errors: errors.array() });
     }
 
-    const { userName, password } = req.body;
+    const { email, password } = req.body;
 
     try {
-        let admin = await Admin.findOne( { userName });
+        let user = await User.findOne( { email });
 
-        if(!admin) {
-            return res.status(400).json( { msg: 'Invalid user name or Password'});
+        if(!user) {
+            return res.status(400).json( { msg: 'Invalid email or password'});
         }
-        const isMatch = await bcrypt.compare(password, admin.password);
+        const isMatch = await bcrypt.compare(password, user.password);
 
         if(!isMatch) {
-            return res.status(400).json({ msg: 'Invalid user name or Password'})
+            return res.status(400).json({ msg: 'Invalid email or Password'})
         };
 
         const payload = {
-            admin: {
-                id: admin.id
+            user: {
+                id: user.id
             } 
         }
         jwt.sign(
@@ -72,6 +72,5 @@ router.post(
     }
 }
 );
-
 
 module.exports = router;
