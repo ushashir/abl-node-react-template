@@ -32,7 +32,7 @@ class PageWrapper extends Component {
                   <Link className="nav-link js-scroll-trigger" to="/">Home</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link js-scroll-trigger" to="/">Login</Link>
+                  <Link className="nav-link js-scroll-trigger" to="/login">Login</Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link js-scroll-trigger" to="/about">Services</Link>

@@ -16,7 +16,7 @@ class Home extends Component {
         subtitle="ALEXANDER BERNHARDT LIBRATY"
         buttonText="Get Started"
         buttonText1="Explore"
-        link="/contact"
+        link="/login"
         showButton={true}
       />
     )

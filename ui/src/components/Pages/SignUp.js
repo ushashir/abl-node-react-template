@@ -26,7 +26,6 @@ const Register = props => {
     firstName: '',
     lastName: '',
     email: '',
-    occupation: '',
     password: '',
     confirmPassword: ''
   }
@@ -56,9 +55,7 @@ const Register = props => {
 
   return (
     <div className='form-container'>
-      <h1>
-        <span className='text-primary'>Sign Up Here</span>
-      </h1>
+      <h1><span className='text-primary'>Sign Up Here</span></h1>
 
       <form onSubmit={onSubmit}>
         <div className='form-group'>

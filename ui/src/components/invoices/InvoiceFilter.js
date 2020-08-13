@@ -1,11 +1,11 @@
 import React, {useContext, useRef, useEffect} from 'react'
-import BookContext from '../../context/book/bookContext'
+import InvoiceContext from '../../context/invoice/invoiceContext'
 
-const BookFilter = () => {
-  const bookContext = useContext(BookContext)
+const InvoiceFilter = () => {
+  const invoiceContext = useContext(InvoiceContext)
   const text = useRef('')
 
-  const {filterBooks, clearFilter, filtered} = bookContext
+  const {filterInvoices, clearFilter, filtered} = invoiceContext
 
   useEffect(() => {
     if (filtered === null) {
@@ -15,7 +15,7 @@ const BookFilter = () => {
 
   const onChange = e => {
     if (text.current.value !== '') {
-      filterBooks(e.target.value)
+      filterInvoices(e.target.value)
     } else {
       clearFilter()
     }
@@ -26,11 +26,11 @@ const BookFilter = () => {
       <input
         ref={text}
         type='text'
-        placeholder='Filter Books...'
+        placeholder='Filter Invoices...'
         onChange={onChange}
       />
     </form>
   )
 }
 
-export default BookFilter
+export default InvoiceFilter
