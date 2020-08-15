@@ -11,8 +11,9 @@ const User = require('../models/User');
 // @desk    register new user
 // access   Private 
 router.post( '/', [
-            check('email', 'Please add email').not().isEmpty(),
-            check('email', 'Please add email').not().isEmpty(),
+            check('firstName', 'Please add name').not().isEmpty(),
+            check('email', 'Please include a valid email').isEmail(),
+    
         ], 
      
     async (req, res) => {
@@ -22,22 +23,11 @@ router.post( '/', [
       }
       
       const { 
-                regNo,
-                password,
-                category, 
-                firstName, 
-                lastName, 
-                phoneNo, 
-                email,
-                homeAddress,
-                officeAddress,
-                gender,
-                occupation,
-                institution,
-                department,
-                schoolID,
-                level,
-                subStatus
+                email,       password,      category, 
+                firstName,   lastName,      phoneNo, 
+                homeAddress, officeAddress, gender,
+                occupation,  institution,   department,
+                schoolID,    level,         subStatus
                             } = req.body;
     try {
         let user = await User.findOne( { email });
@@ -46,22 +36,11 @@ router.post( '/', [
             return res.status(400).json({ msg: 'User already exist'})
         }
           user = new User({
-            regNo,
-            password,
-            category, 
-            firstName, 
-            lastName, 
-            phoneNo, 
-            email,
-            homeAddress,
-            officeAddress,
-            gender,
-            occupation,
-            institution,
-            department,
-            schoolID,
-            level,
-            subStatus
+            email,          password,       category, 
+            firstName,      lastName,       phoneNo, 
+            homeAddress,    officeAddress,  gender,
+            occupation,     institution,    department,
+            schoolID,       level,          subStatus
           });
 
           const salt = await bcrypt.genSalt(10);

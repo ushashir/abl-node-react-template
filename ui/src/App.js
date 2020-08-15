@@ -4,41 +4,31 @@ import PageWrapper from "./components/PageWrapper";
 import Footer from "./components/Common/Footer";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import AuthState from './context/auth/AuthState'
-import AlertState from './context/alert/AlertState'
-import Alert from './components/Alerts'
-
 //Pages
 import Home from "./components/Pages/Home";
 import About from "./components/Pages/About";
 import Work from "./components/Pages/Work";
 import Contact from './components/Pages/Contact';
-import Signup from './components/Pages/SignUp';
-import Login from './components/Pages/Login';
-import Col from './components/Pages/Col';
+import UserDashboard from './components/Pages/UserDashboard';
+import SignUp from './components/Pages/SignUp';
+import NotFound from './components/Pages/NotFound';
 
 function App() {
   return (
     <Router>
       <Fragment>
       <PageWrapper>
-        <AuthState >
-        <AlertState>
-          <Alert />
           <Switch>
             <Route exact={true} path="/" component={Home} />
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />
             <Route path="/work" component={Work} />
-            <Route path="/col" component={Col} />
-            <Route path="/login" component={Login} /> 
-            <Route path="/signup" component={Signup} /> 
-            <Footer />
+            <Route path="/login" component={UserDashboard} />
+            <Route path="/signup" component={SignUp} />
+            <Route component={NotFound} />
           </Switch>
-        </AlertState>
-        </AuthState>
       </PageWrapper>
-      
+      <Footer />
       </Fragment>
     </Router>
   );

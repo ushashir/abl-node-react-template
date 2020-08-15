@@ -24,7 +24,7 @@ const InvoiceState = props => {
     error: null
   }
 
-  const [state, dispatch] = useReducer(activityReducer, initialState)
+  const [state, dispatch] = useReducer(invoiceReducer, initialState)
 
   // add invoice
   const addInvoice = async invoice => {
