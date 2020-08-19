@@ -24,8 +24,6 @@ app.use('/api/invoices', invoice);
 app.use('/api/bookings', booking);
 app.use('/api/inquiries', inquiry);
 
-
-
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

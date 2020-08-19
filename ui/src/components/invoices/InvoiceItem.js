@@ -18,7 +18,7 @@ const InvoiceItem = ({ invoice }) => {
       <h6 className='text-primary text-left'> {name} {' '}</h6>
       
         <h4 className='text-primary text-left'>
-          Amount {amount}{' '}
+          Amount N{amount}{' '}
         
         </h4>
             <p><i>Paid For:</i> {paidFor}{''} </p>

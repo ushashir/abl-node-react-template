@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const ReceiptSchema = mongoose.Schema ({
+const InvoiceSchema = mongoose.Schema ({
     
     date: {
         type: Date,
@@ -20,5 +20,5 @@ const ReceiptSchema = mongoose.Schema ({
     }
 })
 
-module.exports = mongoose.model('receipt', ReceiptSchema);
+module.exports = mongoose.model('invoices', InvoiceSchema);
 

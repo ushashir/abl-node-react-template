@@ -3,24 +3,20 @@ const router = express.Router();
 const auth = require('../middleware/auth');
 const { check, validationResult } = require('express-validator');
 
-const Receipt = require('../models/Receipt')
+const Invoice = require('../models/Invoice')
 
-// @route   GET api/receipts
-// @desk    Get all users details
-// access   Private
+// GET api/invoices  - Get all users details - Private access
 router.get('/', auth, async (req, res) => { 
     try {
-        const receipts = await Receipt.find( {receipts: req.receipts}).sort( { date: -1 });
-        res.json(receipts);
+        const invoices = await Invoice.find( {invoices: req.invoices}).sort( { date: -1 });
+        res.json(invoices);
     } catch (err) {
         console.error(err.message);
         res.status(500).send('Server Error')
     }
 });
 
-// @route   POST api/receipts
-// @desk    Add new receipt
-// access   Private
+// POST api/invoices - Add new invoice -  Private access
 router.post(
     '/', 
     [ auth, 
@@ -37,16 +33,16 @@ router.post(
     const  { name, amount, paidFor } = req.body;
 
     try {
-        const newReceipt = new Receipt ({
+        const newInvoice = new Invoice ({
             name, 
             amount, 
             paidFor,
-            admin: req.admin.id
+            user: req.user.id
         });
 
-        const receipt = await newReceipt.save();
+        const invoice = await newInvoice.save();
 
-        res.json(receipt);
+        res.json(invoice);
     } catch (err) {
         console.error(err.message);
         res.status(500).send('Server Error')
@@ -54,63 +50,59 @@ router.post(
 
 });
 
-// @route   PUT api/receipts/:id
-// @desk    Update receipt
-// access   Private
+// @route   PUT api/invoices/:id - Update invoice - Private access
 router.put('/:id', auth, async (req, res) => {
     const { name, amount, paidFor } = req.body;
 
-    // Build a receipt object
-    const receiptFields = {};
-    if(name) receiptFields.name = name;
-    if(amount) receiptFields.amount = amount;
-    if(paidFor) receiptFields.paidFor = paidFor;
+    // Build a invoice object
+    const invoiceFields = {};
+    if(name) invoiceFields.name = name;
+    if(amount) invoiceFields.amount = amount;
+    if(paidFor) invoiceFields.paidFor = paidFor;
     
     try {
-        let receipt = await Receipt.findById(req.params.id);
+        let invoice = await Invoice.findById(req.params.id);
         
-        if (!receipt) return res.status(404).json( { msg: 'Receipt not Found' });
+        if (!invoice) return res.status(404).json( { msg: 'Invoice not Found' });
 
-        // Make sure admin own the receipt
-        if (receipt.admin.toString() !== req.admin.id ) {
+        // Make sure user own the invoice
+        if (invoice.user.toString() !== req.user.id ) {
             return res.status(401).json( {msg: 'Not authorized' });
         }
 
-        receipt = await Receipt.findByIdAndUpdate(req.params.id,
+        invoice = await Invoice.findByIdAndUpdate(req.params.id,
             { $set: receiptFields },
             { new: true });
 
-            res.json(receipt);
+            res.json(invoice);
     } catch (err) {
         console.error.error(err.message);
         res.status(500).send('Server Error')
     }
 
 });
-// @route   DELETE api/recipts/:id
-// @desk    Delete receipts
-// access   Private
+
+// @route   DELETE api/recipts/:id - Delete invoices - Private access
 router.delete('/:id', auth, async (req, res) => {
-    res.send('Delete Receipt');
+    res.send('Delete Invoice');
 
     try {
-        let receipt = await Receipt.findById(req.params.id);
+        let invoice = await Invoice.findById(req.params.id);
         
-        if (!receipt) return res.status(404).json( { msg: 'Receipt not Found' });
+        if (!invoice) return res.status(404).json( { msg: 'Invoice not Found' });
 
-        // Make sure user own the receipt
-        if (receipt.admin.toString() !== req.admin.id ) {
+        // Make sure user own the invoice
+        if (invoice.user.toString() !== req.user.id ) {
             return res.status(401).json( {msg: 'Not authorized' });
         }
 
-        await Receipt.findByIdAndRemove(req.params.id);
+        await Invoice.findByIdAndRemove(req.params.id);
 
-            res.json({ msg: 'Receipt removed' });
+            res.json({ msg: 'Invoice removed' });
     } catch (err) {
         console.error.error(err.message);
         res.status(500).send('Server Error')
     }
 });
-
 
 module.exports = router;

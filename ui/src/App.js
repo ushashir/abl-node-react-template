@@ -9,8 +9,9 @@ import Home from "./components/Pages/Home";
 import About from "./components/Pages/About";
 import Work from "./components/Pages/Work";
 import Contact from './components/Pages/Contact';
-import UserDashboard from './components/Pages/UserDashboard';
+import PrivatePage from './components/Pages/PrivatePage';
 import SignUp from './components/Pages/SignUp';
+import Login from './components/Pages/Login';
 import NotFound from './components/Pages/NotFound';
 
 function App() {
@@ -20,10 +21,12 @@ function App() {
       <PageWrapper>
           <Switch>
             <Route exact={true} path="/" component={Home} />
+            
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />
             <Route path="/work" component={Work} />
-            <Route path="/login" component={UserDashboard} />
+            <Route path="/user/page" component={PrivatePage} />
+            <Route path="/login" component={Login} />
             <Route path="/signup" component={SignUp} />
             <Route component={NotFound} />
           </Switch>
