@@ -1,36 +1,30 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react'
+import Invoices from '../../components/invoices/Invoices'
+import InvoiceForm from '../../components/invoices/InvoiceForm'
+import InvoiceFilter from '../../components/invoices/InvoiceFilter'
+import AuthContext from '../../context/auth/authContext'
+import InvoiceContext from '../../context/invoice/invoiceContext'
 
-// import { BrowserRouter as Route} from "react-router-dom";
+const PrivatePage = () => {
+  const {loadUser} = useContext(AuthContext)
+  const {invoices} = useContext(InvoiceContext)
 
-// states
-// import AuthState from '../../context/auth/AuthState'
-// import AlertState from '../../context/alert/AlertState'
-import InvoiceState from '../../context/invoice/InvoiceState'
+  useEffect(() => {
+    loadUser()
+    // eslint-disable-next-line
+  }, [])
 
-// import Alerts from '../Alerts'
-
-// import utils
-// import setAuthToken from '../../utils/setAuthToken'
-
-// Import Private Route
-// import PrivateRoute from '../PrivateRoute'
-
-//Pages
-// import Signup from './SignUp';
-// import Login from './Login';
-
-// if (localStorage.tokem) {
-//   setAuthToken(localStorage.token)
-// }
-
-function PrivatePage () {
-  
   return (
-    
-        <InvoiceState>
-          
-        </InvoiceState>
-  );
+    <div className='grid-2'>
+      <div className=''>
+        <InvoiceForm />
+      </div>
+      <div className=''>
+        {invoices !== null && <InvoiceFilter />}
+        <Invoices />
+      </div>
+    </div>
+  )
 }
 
-export default PrivatePage;
+export default PrivatePage

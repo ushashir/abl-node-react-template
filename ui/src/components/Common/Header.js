@@ -12,11 +12,8 @@ class Header extends Component {
               <div className="intro-heading">{this.props.subtitle}</div>
               <div className="intro-lead-in">{this.props.title}</div>
               {this.props.showButton &&
-              <Link className="btn btn-primary btn-xl text-uppercase js-scroll-trigger" to={this.props.link}>{this.props.buttonText}</Link>
-              },
-              {this.props.showButton &&
-              <Link className="btn btn-success btn-xl text-uppercase js-scroll-trigger" to={this.props.link}>{this.props.buttonText1}</Link>
-              }            
+              <Link className="btn btn-outline-light btn-lg text-uppercase js-scroll-trigger" to={this.props.link}>{this.props.buttonText}</Link>
+              }           
             </div>
           </div>
         </header>        

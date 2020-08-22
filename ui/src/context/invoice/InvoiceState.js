@@ -119,20 +119,20 @@ const InvoiceState = props => {
   return (
     <InvoiceContext.Provider
       value={{
-        invoices: state.invoices,
-        current: state.current,
-        filtered: state.filtered,
-        error: state.error,
-        getInvoices,
-        addInvoice,
-        updateInvoice,
-        deleteInvoice,
-        filterInvoices,
-        clearFilter,
-        clearInvoices,
-        setCurrent,
-        clearCurrent
-      }}>
+                invoices: state.invoices,
+                current: state.current,
+                filtered: state.filtered,
+                error: state.error,
+                getInvoices,
+                addInvoice,
+                updateInvoice,
+                deleteInvoice,
+                filterInvoices,
+                clearFilter,
+                clearInvoices,
+                setCurrent,
+                clearCurrent
+                            }}>
       {props.children}
     </InvoiceContext.Provider>
   )

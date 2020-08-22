@@ -1,7 +1,8 @@
-import React, {Fragment, useContext, useEffect} from 'react'
-import InvoiceItem from './InvoiceItem'
-import InvoiceContext from '../../context/invoice/invoiceContext'
-// import Spinner from '../layouts/Spinner'
+import React, {Fragment, useContext, useEffect} from 'react';
+import {CSSTransition, TransitionGroup} from 'react-transition-group';
+import InvoiceItem from './InvoiceItem';
+import InvoiceContext from '../../context/invoice/invoiceContext';
+import Spinner from '../../components/assets/img/spinner.gif'
 
 const Invoice = () => {
   const invoiceContext = useContext(InvoiceContext)
