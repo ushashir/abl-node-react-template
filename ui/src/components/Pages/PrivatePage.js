@@ -1,9 +1,9 @@
 import React, {useContext, useEffect} from 'react'
-import Invoices from '../../components/invoices/Invoices'
-import InvoiceForm from '../../components/invoices/InvoiceForm'
-import InvoiceFilter from '../../components/invoices/InvoiceFilter'
-import AuthContext from '../../context/auth/authContext'
-import InvoiceContext from '../../context/invoice/invoiceContext'
+import Invoices from '../ViewControllers/invoices/Invoices'
+import InvoiceForm from '../ViewControllers/invoices/InvoiceForm'
+import InvoiceFilter from '../ViewControllers/invoices/InvoiceFilter'
+import AuthContext from '../../ContextAPIs/auth/authContext'
+import InvoiceContext from '../../ContextAPIs/invoice/invoiceContext'
 
 const PrivatePage = () => {
   const {loadUser} = useContext(AuthContext)

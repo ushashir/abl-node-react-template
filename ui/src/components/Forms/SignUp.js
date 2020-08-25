@@ -1,6 +1,6 @@
 import React, {useState, useContext, useEffect} from 'react';
-import AlertContext from '../../context/alert/alertContext';
-import AuthContext from '../../context/auth/authContext';
+import AlertContext from '../../ContextAPIs/alert/alertContext';
+import AuthContext from '../../ContextAPIs/auth/authContext';
 import { Link } from 'react-router-dom';
 
 const Register = props => {

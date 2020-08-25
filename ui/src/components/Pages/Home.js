@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import Header from "../Common/Header";
+import Header from "../Pages/Header";
 // import image from "../assets/img/team/1.jpg";
 import "../../css/Home.css";
-import Info from '../Common/Info'
+import Info from '../Pages/Info'
 
 //Re-usable components
 
@@ -17,7 +17,7 @@ class Home extends Component {
           title="Welcome to our official website"
           subtitle=""
           buttonText="GET STARTED"
-          link="/login"
+          link="/getstarted"
           showButton={true}
         />
         <Info />

@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
-import Header from "../Common/Header";
+import Header from "../Pages/Header";
 // import image from "../assets/img/map-image.png";
-
-import Team from "../Common/Team";
-import Portfolio from './Work';
 
 class About extends Component {
   render() {
@@ -16,8 +13,6 @@ class About extends Component {
           showButton={false}
           // image={image}
         />
-
-        <Team />
 
         <div className="container ">
           <div className="row">
@@ -32,7 +27,6 @@ class About extends Component {
             
         </div>
         
-        <Portfolio />
 
         <section className="page-section" id="about">
           <div className="container">

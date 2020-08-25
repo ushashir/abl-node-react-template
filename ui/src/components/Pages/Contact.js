@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ContactForm from "../Common/ContactForm";
+import ContactForm from '../Forms/ContactForm';
 // import { withFormik } from "formik";
 import emailjs from "emailjs-com";
 

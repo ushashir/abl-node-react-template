@@ -14,7 +14,7 @@ import {
           FILTER_INVOICES,
           CLEAR_INVOICES   
                          } from '../types'
-import setAuthToken from '../../utils/setAuthToken'
+import setAuthToken from '../../Utils/setAuthToken'
 
 const InvoiceState = props => {
   const initialState = {
