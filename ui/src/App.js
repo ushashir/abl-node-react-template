@@ -44,7 +44,7 @@ function App() {
                       <Route path="/contact" component={Contact} />
                       <Route path="/user" component={PrivatePage} />
                       <Route path="/login" component={Login} />
-                      <Route path="/signup" component={SignUp} />
+                      <Route path="/register" component={SignUp} />
                       <Route path="/booking" component={Booking} />
                       <Route component={NotFound} />
                     </Switch>

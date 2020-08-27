@@ -1,13 +1,6 @@
 const mongoose = require('mongoose');
 
 const UserSchema = mongoose.Schema ({
-    firstName: {
-        type: String,
-        required: true,
-    },
-    lastName: {
-        type: String,
-    },
     email: {
         type: String,
         required: true,
@@ -17,6 +10,14 @@ const UserSchema = mongoose.Schema ({
         type: String,
         required: true
     },
+    firstName: {
+        type: String,
+        required: true,
+    },
+    lastName: {
+        type: String,
+        required: true,
+    },
     category: {
         type: String,
         default: 'OTHERS'
@@ -24,10 +25,7 @@ const UserSchema = mongoose.Schema ({
     phoneNo: {
         type: Number,
     },
-    homeAddress: {
-        type: String,
-    },
-    officeAddress: {
+    address: {
         type: String,
     },
     gender: {
@@ -39,18 +37,19 @@ const UserSchema = mongoose.Schema ({
     institution: {
         type: String,
     },
-    department: {
+    course: {
         type: String,
     },
     schoolID: {
         type: String,
     },
-    level: {
-        type: String,
-    },
     subStatus: {
         type: String,
         default: 'OFF'
+    },
+    addMeOnWhatApp: {
+        type: String,
+        default: 'YES'
     },
     date: {
         type: Date,

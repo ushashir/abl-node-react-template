@@ -1,44 +1,28 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import GetStartedInfo from './GetStartedInfo';
+
+import '../../css/App.css';
+import '../../css/Login.css';
 
 const GetStarted = () => {
     return (
         <div className='container'>
         <div className="row ">
-                    <div className="col-md-4">
-                        <div className="card">
-                            <div className="card-body">
-                                <h4 className="card-title"> <Link to='/login'>LOGIN </Link> </h4>
-                                <br /> 
-                                Don't have account? <Link to='/signup'> Signup here</Link>
-                            </div>
-                        </div>
-                    </div>
-                  
-                    <div className="col-md-4">
-                        <div className="card">
-                        <div className="card-body">
-                                <h4 className="card-title"> <Link to='/booking'>BOOK FOR EVENT</Link> </h4>
-                                <br /> 
-                                Our hall can accomodate up to 40 persons
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <div className="col-md-4">
-                        <div className="card">
-                        <div className="card-body">
-                                <h4 className="card-title"> <Link to='/contact'>SENT US A MESSAGE</Link> </h4>
-                                <br /> 
-                                You wish to inquire for anything? Send us a message
-                            </div>
-                            
-                        </div>
-                    </div>
-
+                <div className="col-md-4">
+                        <Link to='/login'><img alt="news" src={require('../../Components/Assets/img/login.png')} /></Link>
+                        <h4> <Link to='/login'>Login </Link> or <Link to='/register'>Register </Link> </h4> 
                 </div>
+                <div className="col-md-4">
+                    <Link to='/booking'><img alt="news" src={require('../../Components/Assets/img/booking.jpg')} /></Link>
+                    <h4> <Link to='/booking'>Book for event</Link> </h4>
+                </div>
+                <div className="col-md-4">
+                    <Link to='/contact'><img alt="news" src={require('../../Components/Assets/img/message.jpg')} /></Link>
+                        <h4> <Link to='/contact'>Send us a message</Link> </h4>
+                </div>
+            </div>
+            <hr />
                 <GetStartedInfo />
             </div>
     )

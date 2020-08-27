@@ -36,7 +36,7 @@ function Footer() {
                     <div class="col-md-4">
                     <h4>Contact Details</h4>
                         <hr class="light" />
-                        <p> +234 901 851 5257</p>
+                        <p> +234 813 857 2304</p>
                         <p>info@alexanderbernhardtlibrary.com</p>
                         <p>8, Morris Steet. Yaba. Lagos-Nigeria </p>
                     </div>
@@ -58,7 +58,7 @@ function Footer() {
                         </p>
                         
                         <p> <Link  to="/login"> Login  </Link> 
-                            <Link  to="/"> Register  </Link> 
+                            <Link  to="/register"> Register  </Link> 
                             <Link  to="/"> Reviews  </Link>
                         </p>
                     </div>
@@ -66,12 +66,9 @@ function Footer() {
                         <hr class="light" />
                         <h5> Alexander Bernhardt Library. &copy; 2020. Powered by <a href="http://nawillcorporation.com">Nawill </a> IT Solutions  </h5>
                     </div>
-        
           <br />
           <br />
           <br />
-        
-        
       </div>
     </div>
   </footer>

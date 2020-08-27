@@ -13,7 +13,6 @@ const User = require('../models/User');
 router.post( '/', [
             check('firstName', 'Please add name').not().isEmpty(),
             check('email', 'Please include a valid email').isEmail(),
-    
         ], 
      
     async (req, res) => {
@@ -25,9 +24,9 @@ router.post( '/', [
       const { 
                 email,       password,      category, 
                 firstName,   lastName,      phoneNo, 
-                homeAddress, officeAddress, gender,
+                address,     gender,
                 occupation,  institution,   department,
-                schoolID,    level,         subStatus
+                schoolID,    subStatus
                             } = req.body;
     try {
         let user = await User.findOne( { email });
@@ -38,9 +37,9 @@ router.post( '/', [
           user = new User({
             email,          password,       category, 
             firstName,      lastName,       phoneNo, 
-            homeAddress,    officeAddress,  gender,
+            address,      gender,
             occupation,     institution,    department,
-            schoolID,       level,          subStatus
+            schoolID,        subStatus
           });
 
           const salt = await bcrypt.genSalt(10);
