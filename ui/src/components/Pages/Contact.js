@@ -34,7 +34,6 @@ class Contact extends Component {
       this.setState({
         sent: 'fail'
       })
-
       setTimeout(() => {
         this.setState({
           sent: ''
@@ -57,6 +56,7 @@ class Contact extends Component {
       })
 
       emailjs.send('gmail', 'template_cJaDt3lL', templateParams, 'user_ijdS2pAy9Y4kPjCYtCZxS')
+
       .then((result) => {
         this.setState({
           sent: 'success'
@@ -76,7 +76,7 @@ class Contact extends Component {
       <div className="container">
         <div className="row">
           <div className="col-lg-12 text-center">
-            <h2 className="section-heading text-uppercase">Contact Us</h2>
+            <h2 className="section-heading text-uppercase">Message us here</h2>
             <h3 className="section-subheading text-muted">Get in touch with Us.</h3>
           </div>
         </div>

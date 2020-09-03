@@ -80,7 +80,7 @@ const Login = props => {
             </div>
             <div className="card-footer">
               <div className="d-flex justify-content-center links">
-                Don't have an account? <span><Link to='/signup'>Sign Up Here</Link></span> 
+                Don't have an account? <span><Link to='/register'>Sign Up</Link></span> 
               </div>
               <div className="d-flex justify-content-center">
                 <a href="no">Forgot your password?</a>

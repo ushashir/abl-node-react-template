@@ -13,7 +13,6 @@ class Home extends Component {
       <div>
         <Header
           headerHeight={{height: `${h}px`}}
-        
           title="Welcome to our official website"
           subtitle=""
           buttonText="GET STARTED"

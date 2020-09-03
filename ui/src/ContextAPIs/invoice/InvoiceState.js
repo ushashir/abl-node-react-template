@@ -8,8 +8,6 @@ import {
           CLEAR_FILTER, 
           GET_INVOICES,
           ADD_INVOICE,
-          DELETE_INVOICE,
-          UPDATE_INVOICE,
           INVOICE_ERROR,
           FILTER_INVOICES,
           CLEAR_INVOICES   
@@ -18,7 +16,29 @@ import setAuthToken from '../../Utils/setAuthToken'
 
 const InvoiceState = props => {
   const initialState = {
-    invoices: null,
+    invoices: [
+              {
+                id: 1,
+                name: 'Ushahemba Shir',
+                paidFor: 'One month Subscription',
+                amount: '3000'
+                
+              },
+              {
+                id: 2,
+                name: 'Portia Osabade',
+                paidFor: 'Daily Subscription',
+                amount: '500'
+                
+              },
+              {
+                id: 3,
+                name: 'Ole Gunner Soldjaer',
+                paidFor: 'Hall renting',
+                amount: '40000'
+              
+              }
+            ],
     current: null,
     filtered: null,
     error: null
@@ -33,10 +53,8 @@ const InvoiceState = props => {
         'Content-Type': 'application/json'
       }
     }
-
     try {
       const res = await axios.post('/api/invoices', invoice, config)
-
       dispatch({type: ADD_INVOICE, payload: res.data})
     } catch (err) {
       dispatch({type: INVOICE_ERROR, payload: err.response.data})
@@ -44,27 +62,7 @@ const InvoiceState = props => {
   }
   
 
-  // update invoice
-  const updateInvoice = async invoice => {
-    const config = {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }
-
-    try {
-      const res = await axios.put(
-        `/api/invoices/${invoice._id}`,
-        invoice,
-        config
-      )
-
-      dispatch({type: UPDATE_INVOICE, payload: res.data})
-    } catch (err) {
-      dispatch({type: INVOICE_ERROR, payload: err.response.data})
-    }
-  }
-
+  
   // get invoices
   const getInvoices = async invoice => {
     if (localStorage.token) {
@@ -75,17 +73,6 @@ const InvoiceState = props => {
       const res = await axios.get('/api/invoices')
 
       dispatch({type: GET_INVOICES, payload: res.data})
-    } catch (err) {
-      dispatch({type: INVOICE_ERROR, payload: err.response.data})
-    }
-  }
-
-  // delete invoice
-  const deleteInvoice = async id => {
-    try {
-      await axios.delete(`/api/invoices/${id}`)
-
-      dispatch({type: DELETE_INVOICE, payload: id})
     } catch (err) {
       dispatch({type: INVOICE_ERROR, payload: err.response.data})
     }
@@ -117,16 +104,14 @@ const InvoiceState = props => {
   }
 
   return (
-    <InvoiceContext.Provider
+                    <InvoiceContext.Provider
       value={{
-                invoices: state.invoices,
+invoices: state.invoices,
                 current: state.current,
                 filtered: state.filtered,
                 error: state.error,
                 getInvoices,
                 addInvoice,
-                updateInvoice,
-                deleteInvoice,
                 filterInvoices,
                 clearFilter,
                 clearInvoices,

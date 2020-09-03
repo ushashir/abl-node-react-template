@@ -33,28 +33,29 @@ function Footer() {
           </ul>
 
         </div>
-                    <div class="col-md-4">
+                    <div className="col-md-4">
                     <h4>Contact Details</h4>
-                        <hr class="light" />
+                        <hr className="light" />
                         <p> +234 813 857 2304</p>
                         <p>info@alexanderbernhardtlibrary.com</p>
                         <p>8, Morris Steet. Yaba. Lagos-Nigeria </p>
                     </div>
-                    <div class="col-md-4">
-                        <hr class="light" />
+                    <div className="col-md-4">
+                        <hr className="light" />
                         <h4>Opening / Closing Hours</h4>
-                        <hr class="light" />
+                        <hr className="light" />
                         <p> Mon - Fri: 9am - 5pm</p>
                         <p>Saturday: 9am - 3pm</p>
                         <p>Sunday: Closed </p>
                     </div>
-                    <div class="col-md-4">
-                        <hr class="light" />
+                    <div className="col-md-4">
+                        <hr className="light" />
                         <h4>Site Links</h4>
-                        <hr class="light" />
+                        <hr className="light" />
                         <p> <Link  to="/"> Home </Link> 
                             <Link  to="/about"> About  </Link> 
                             <Link  to="/"> Blog  </Link>
+                            <Link  to="/payment"> Payments  </Link>
                         </p>
                         
                         <p> <Link  to="/login"> Login  </Link> 
@@ -62,8 +63,8 @@ function Footer() {
                             <Link  to="/"> Reviews  </Link>
                         </p>
                     </div>
-                    <div class="col-12">
-                        <hr class="light" />
+                    <div className="col-12">
+                        <hr className="light" />
                         <h5> Alexander Bernhardt Library. &copy; 2020. Powered by <a href="http://nawillcorporation.com">Nawill </a> IT Solutions  </h5>
                     </div>
           <br />

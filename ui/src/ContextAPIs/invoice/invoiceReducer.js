@@ -4,8 +4,6 @@ import {
           CLEAR_FILTER, 
           GET_INVOICES,
           ADD_INVOICE,
-          DELETE_INVOICE,
-          UPDATE_INVOICE,
           INVOICE_ERROR,
           FILTER_INVOICES,
           CLEAR_INVOICES
@@ -20,15 +18,6 @@ export default (state, action) => {
         loading: false
       }
 
-    case UPDATE_INVOICE:
-      return {
-        ...state,
-        invoices: state.invoices.map(invoice =>
-          invoice._id === action.payload._id ? action.payload : invoice
-        ),
-        loading: false
-      }
-
     case GET_INVOICES:
       return {
         ...state,
@@ -40,15 +29,6 @@ export default (state, action) => {
       return {
         ...state,
         error: action.payload
-      }
-
-    case DELETE_INVOICE:
-      return {
-        ...state,
-        invoices: state.invoices.filter(
-          invoice => invoice._id !== action.payload
-        ),
-        loading: false
       }
 
     case CLEAR_INVOICES:

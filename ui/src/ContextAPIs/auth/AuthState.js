@@ -2,6 +2,7 @@ import React, {useReducer} from 'react';
 import axios from 'axios';
 import AuthContext from './authContext';
 import authReducer from './authReducer';
+import setAuthToken from '../../Utils/setAuthToken';
 import {
           REGISTER_SUCCESS,
           REGISTER_FAIL,
@@ -12,7 +13,8 @@ import {
           LOGOUT,
           CLEAR_ERRORS
                         } from '../types'
-import setAuthToken from '../../Utils/setAuthToken';
+                        
+
 
 const AuthState = props => {
   const initialState = {

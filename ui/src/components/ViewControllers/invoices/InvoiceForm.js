@@ -47,13 +47,12 @@ const InvoiceForm = () => {
       <h2 className='text-primary'>
         {current ? 'Edit Invoice' : 'Make Payment here'}
       </h2>
-     
-      <input type='text' name='name' placeholder='Title' value={name} onChange={onChange} />
-      <input type='text' name='paidFor' placeholder='Author' value={paidFor} onChange={onChange} />
-      <input type='text' name='amount' placeholder='Publisher' value={amount} onChange={onChange} />
-    
+     <p><input type='text' name='name' placeholder='Name' value={name} onChange={onChange} /> </p>
+     <p><input type='text' name='paidFor' placeholder='Select payment' value={paidFor} onChange={onChange} /> </p>
+     <p><input type='text' name='amount' placeholder='Amount' value={amount} onChange={onChange} /> </p>
+      
       <div>
-        <input type='submit'  value={current ? 'Update Book' : 'Add Book'} className='btn btn-primary btn-block' />
+        <input type='submit'  value={current ? 'Update Invoice' : 'Pay'} className='btn btn-primary' />
       </div>
       {current && (
         <div> <button className='btn btn-light btn-block' onClick={clearAll}>  Clear  </button>  </div>

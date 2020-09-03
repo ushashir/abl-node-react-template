@@ -1,6 +1,6 @@
 import React, {Fragment, useContext, useEffect} from 'react';
 import {CSSTransition, TransitionGroup} from 'react-transition-group';
-import InvoiceItem from './InvoiceForm';
+import InvoiceItem from './InvoiceItem';
 import InvoiceContext from '../../../ContextAPIs/invoice/invoiceContext';
 import Spinner from '../../Assets/img/spinner.gif'
 

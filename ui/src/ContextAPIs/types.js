@@ -21,8 +21,6 @@ export const CLEAR_FILTER = 'CLEAR_FILTER'
 // invoice context types
 export const GET_INVOICES = 'GET_INVOICES'
 export const ADD_INVOICE = 'ADD_INVOICE'
-export const UPDATE_INVOICE = 'UPDATE_INVOICE'
-export const DELETE_INVOICE = 'DELETE_INVOICE'
 export const INVOICE_ERROR = 'INVOICE_ERROR'
 export const FILTER_INVOICES = 'FILTER_INVOICES'
 export const CLEAR_INVOICES = 'CLEAR_INVOICE'

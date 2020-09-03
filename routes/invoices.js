@@ -6,7 +6,7 @@ const { check, validationResult } = require('express-validator');
 const Invoice = require('../models/Invoice')
 
 // GET api/invoices  - Get all users details - Private access
-router.get('/', auth, async (req, res) => { 
+router.get('/', auth,  async (req, res) => { 
     try {
         const invoices = await Invoice.find( {invoices: req.invoices}).sort( { date: -1 });
         res.json(invoices);

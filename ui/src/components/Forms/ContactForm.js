@@ -4,19 +4,19 @@ import Field from "./ContactFields";
 const fields = {
   sections: [
     [
-      {elementName: 'input', type: "text", id: 'name', name: 'user_name', placeholder: "Enter Name *", required: 'required'},
-      {elementName: 'input', type: "email", id: 'email', name: 'user_email', placeholder: "Enter Email *", required: 'required'},
-      {elementName: 'input', type: "text", id: 'phone', name: 'user_phone', placeholder: "Enter Phone Number * Optional", required: ''}
+      {elementName: 'input', type: "text", id: 'name', name: 'user_name', placeholder: "Name *", required: 'required'},
+      {elementName: 'input', type: "email", id: 'email', name: 'user_email', placeholder: "Email *", required: 'required'},
+      {elementName: 'input', type: "text", id: 'phone', name: 'user_phone', placeholder: "Phone Number * Optional", required: ''}
     ],
     [
-      {elementName: 'textarea', type: "text", id: 'message', name: 'message', placeholder: "Enter Message *",  required: 'required'}
+      {elementName: 'textarea', type: "text", id: 'message', name: 'message', placeholder: "Message *",  required: 'required'}
     ]
   ]
 }
 
 function ContactForm(props) {
 
-    const success = 'Thanks for stopping by, I will be reaching out to you ASAP!'
+    const success = 'Message successfully sent! We will get back to you ASAP'
     const fail = 'Sorry something went wrong, it\'s not you, you can try submiting again'
     let alert,
         disabled = false,

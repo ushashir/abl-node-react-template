@@ -14,19 +14,25 @@ import Home from "./Components/Pages/Home";
 import GetStarted from "./Components/Pages/GetStarted";
 import About from "./Components/Pages/About";
 import Contact from './Components/Pages/Contact';
-import PrivatePage from './Components/Pages/PrivatePage';
+import PaymentDashboard from './Components/ViewControllers/invoices/PaymentDashboard';
 import Footer from "./Components/Pages/Footer";
 // utils
 import NotFound from './Components/Pages/NotFound';
+import Alerts from './Components/Alerts';
 
+import setAuthToken from './Utils/setAuthToken'
+
+import PrivateRoute from './Components/PrivateRoute'
 // context rest api's
 import InvoiceState from './ContextAPIs/invoice/InvoiceState';
 import AuthState from './ContextAPIs/auth/AuthState';
 import AlertState from './ContextAPIs/alert/AlertState';
-import Alert from './Components/Alerts'
-
 
 import PageWrapper from "./Components/PageWrapper";
+
+if (localStorage.tokem) {
+  setAuthToken(localStorage.token)
+}
 
 function App() {
   return (
@@ -36,13 +42,14 @@ function App() {
                 <Fragment>
                 <PageWrapper>
                   <AlertState>
-                    <Alert />
+                    <Alerts />
                     <Switch>
                       <Route exact={true} path="/" component={Home} />
+                      <PrivateRoute exact={true} path='/payment' component={PaymentDashboard} />
                       <Route path="/getstarted" component={GetStarted} />
                       <Route path="/about" component={About} />
                       <Route path="/contact" component={Contact} />
-                      <Route path="/user" component={PrivatePage} />
+                      <Route path="/payment" component={PaymentDashboard} />
                       <Route path="/login" component={Login} />
                       <Route path="/register" component={SignUp} />
                       <Route path="/booking" component={Booking} />
@@ -55,6 +62,7 @@ function App() {
               </Router>
             </InvoiceState>
           </AuthState>
+      
   );
 }
 

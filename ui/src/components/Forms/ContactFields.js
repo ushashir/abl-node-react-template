@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Field(props) {
+function contactField(props) {
   return (
     <div className="form-group">
       {props.elementName === 'input' ?
@@ -28,4 +28,4 @@ function Field(props) {
   )
 }
 
-export default Field
+export default contactField;
