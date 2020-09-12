@@ -15,8 +15,8 @@ const Info = () => {
                     library environs are suitable for personal studies, and can be used to that effect upon <Link  to="/signup"> registration </Link>.  
                 </p>
                 <p className="lead"> 
-                Our library hall with the capacity to accomodate up to 40 persons can be <Link  to="/booking"> rented </Link> for 
-                for academic related events like seminar presentations, public lectures, toturial 
+                Our library hall with the capacity to accommodate  up to 40 persons can be <Link  to="/booking"> rented </Link>
+                for academic related events like seminar presentations, public lectures, tutorial 
                  sessions, executives meetings etc.
                 </p>
             </div>

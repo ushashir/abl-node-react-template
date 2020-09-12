@@ -75,6 +75,7 @@ const Register = props => {
   }
 
   return (
+    <section className='page-section'>
     <div className="container" role="form">
             <form onSubmit={onSubmit} className="form-horizontal" >
                 <h2>Registration</h2>
@@ -186,6 +187,7 @@ const Register = props => {
             </form> 
            
         </div> 
+        </section>
   )
 }
 

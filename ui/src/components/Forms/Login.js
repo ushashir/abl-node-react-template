@@ -19,7 +19,7 @@ const Login = props => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      props.history.push('/')
+      props.history.push('/payment')
     }
 
     if (error && error.keyword === 'invalid') {
@@ -45,6 +45,7 @@ const Login = props => {
   }
 
   return (
+    <section className="page-section">
         <div className="container">
         <div className="d-flex justify-content-center h-100">
           <div className="card">
@@ -74,7 +75,7 @@ const Login = props => {
                   <input type="checkbox" />Remember Me
                 </div>
                 <div className="form-group">
-                  <input type="submit" value="Login" className="btn float-right login_btn" />
+                  <input type="submit" value="Login" className="btn float-right login_btn btn-primary" />
                 </div>
               </form>
             </div>
@@ -88,7 +89,8 @@ const Login = props => {
             </div>
           </div>
         </div>
-        </div>        
+        </div>  
+      </section>      
   )
 }
 export default Login;

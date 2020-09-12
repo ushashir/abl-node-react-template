@@ -28,10 +28,8 @@ function Footer() {
               <Link target="_blank" rel="noopener" to="//www.facebook.com/alexbernlibrary">
                 <i className="fab fa-facebook"></i>
               </Link>
-            </li>
-                 
+            </li>  
           </ul>
-
         </div>
                     <div className="col-md-4">
                     <h4>Contact Details</h4>
@@ -52,27 +50,30 @@ function Footer() {
                         <hr className="light" />
                         <h4>Site Links</h4>
                         <hr className="light" />
+                        <small>
                         <p> <Link  to="/"> Home </Link> 
-                            <Link  to="/about"> About  </Link> 
+                            <Link  to="/services"> Services  </Link> 
                             <Link  to="/"> Blog  </Link>
-                            <Link  to="/payment"> Payments  </Link>
+                            <Link  to="/booking"> Book Hall  </Link>
                         </p>
                         
                         <p> <Link  to="/login"> Login  </Link> 
                             <Link  to="/register"> Register  </Link> 
-                            <Link  to="/"> Reviews  </Link>
+                            <Link  to="/payment"> Subcribe  </Link>
                         </p>
+                        <p> <Link  to="/getstarted"> Get Started  </Link> 
+                            <Link  to="/register"> Register  </Link> 
+                            <Link  to="/">Reviews</Link>
+                        </p>
+                        </small>
                     </div>
                     <div className="col-12">
                         <hr className="light" />
-                        <h5> Alexander Bernhardt Library. &copy; 2020. Powered by <a href="http://nawillcorporation.com">Nawill </a> IT Solutions  </h5>
+                        <h5> Alexander Bernhardt Library. &copy; 2020. Powered by <a href="http://nawipedia.com">Nawill </a></h5>
                     </div>
-          <br />
-          <br />
-          <br />
-      </div>
-    </div>
-  </footer>
+            </div>
+          </div>
+        </footer>
   )
 }
 

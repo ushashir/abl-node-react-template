@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ContactForm from '../Forms/ContactForm';
+import BookingForm from '../Forms/BookingForm';
 
 // import { withFormik } from "formik";
 import emailjs from "emailjs-com";
@@ -7,7 +7,7 @@ import emailjs from "emailjs-com";
 // import{ init } from 'emailjs-com';
 // init("user_6ucmwwN6OsDA9xMAHe00J");
 
-class Contact extends Component {
+class Booking extends Component {
   constructor(props) {
     super(props)
   
@@ -15,7 +15,10 @@ class Contact extends Component {
        name: '',
        email: '',
        phone: '',
-       message: '',
+       organisation: '',
+       event: '',
+       date: '',
+       about: '',
        sent: ''
     }
     this.onChangeEvent = this.onChangeEvent.bind(this)
@@ -23,10 +26,13 @@ class Contact extends Component {
   clearState = (sent) => {
     if (sent) {
       this.setState({
-        name: '', 
-        email: '',
-        phone: '',
-        message: '',
+        name: '',
+       email: '',
+       phone: '',
+       organisation: '',
+       event: '',
+       date: '',
+       about: ''
       })
 
       setTimeout(() => {
@@ -53,14 +59,12 @@ class Contact extends Component {
   onSubmitEvent = (event) => {
     event.preventDefault()
     const templateParams = {...this.state}
-    const {name, email, message} = this.state
-    if (name !== '' && email !== '' && message !== '') {
+    const {name, email, date, about} = this.state
+    if (name !== '' && email !== '' && date !== '' && about !== '') {
       this.setState({
         sent: 'sending'
       })
-
       emailjs.send('gmail', 'template_cJaDt3lL', templateParams, 'user_ijdS2pAy9Y4kPjCYtCZxS')
-
       .then((result) => {
         this.setState({
           sent: 'success'
@@ -70,7 +74,6 @@ class Contact extends Component {
           this.clearState(false)
       });
     } else {
-
     }
   }
 
@@ -80,13 +83,12 @@ class Contact extends Component {
       <div className="container">
         <div className="row">
           <div className="col-lg-12 text-center">
-            <h2 className="section-heading text-uppercase">Message us here</h2>
-            <h3 className="section-subheading text-muted">Get in touch with Us.</h3>
+            <h3 className="section-heading text-uppercase">Fill the form below to book for hall</h3>
           </div>
         </div>
         <div className="row">
           <div className="col-lg-12">
-            <ContactForm {...this.state} onChangeEvent={this.onChangeEvent} onSubmitEvent={this.onSubmitEvent} />
+            <BookingForm {...this.state} onChangeEvent={this.onChangeEvent} onSubmitEvent={this.onSubmitEvent} />
           </div>
         </div>
       </div>
@@ -96,4 +98,4 @@ class Contact extends Component {
 }
 
 
-export default Contact;
+export default Booking;

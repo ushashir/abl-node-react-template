@@ -16,7 +16,6 @@ const AuthNav = () => {
     logout()
     clearInvoices()
   }
-
   const authLinks = (
     <Fragment>
       Welcome {''}
@@ -27,11 +26,8 @@ const AuthNav = () => {
             <span className='hide-sm'>Logout</span>
           </a>
       </div>
-        
-      
     </Fragment>
   )
-
   const guestLinks = (
     <Fragment>
       <div className='col'>

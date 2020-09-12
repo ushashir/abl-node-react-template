@@ -7,6 +7,7 @@ import '../../css/Login.css';
 
 const GetStarted = () => {
     return (
+        <section className="page-section">
         <div className='container'>
         <div className="row ">
                 <div className="col-md-4">
@@ -25,7 +26,7 @@ const GetStarted = () => {
             <hr />
                 <GetStartedInfo />
             </div>
+        </section>
     )
 }
-
 export default GetStarted;

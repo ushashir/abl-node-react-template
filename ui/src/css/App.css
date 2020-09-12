@@ -104,11 +104,11 @@ hr.light-100 {
 .social_icon span{
 font-size: 40px;
 margin-left: 10px;
-color: #6648b1;
+color: grey;
 }
 
 .social_icon span:hover{
-color: #38dd4e53;
+color: grey;
 cursor: pointer;
 }
 
@@ -124,7 +124,7 @@ top: -45px;
 
 .input-group-prepend span{
 width: 50px;
-background-color: #6648b1;
+background-color: grey;
 color: black;
 border:0 !important;
 }
@@ -143,13 +143,13 @@ margin-right: 5px;
 
 .login_btn{
 color: black;
-background-color: #6648b1;
+/* background-color: grey; */
 width: 100px;
 }
 
 .login_btn:hover{
 color: black;
-background-color: white;
+background-color: greenyellow;
 }
 
 .links a{

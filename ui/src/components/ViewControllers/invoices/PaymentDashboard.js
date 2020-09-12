@@ -16,15 +16,13 @@ const UserDashboard = () => {
   }, [])
 
   return (
+    <section className='page-section'>
     <div className='container'>
       <div style={{float: 'right'}} >
       <LoginNav />
       </div>
-          
           <InvoiceForm /> <br />
-        
               Recent Transactions
-        
           {invoices !== null && <InvoiceFilter />}
           <table className="table table-light">
             <thead>
@@ -34,13 +32,10 @@ const UserDashboard = () => {
                 <th scope="col">AMOUNT (N)</th>
               </tr>
             </thead>
-           
           </table>
           <Invoices />
-        
-      
-
     </div>
+    </section>
   )
 }
 

@@ -22,6 +22,7 @@ router.post(
     [ auth, 
         [
         check('name', 'Name is required').not().isEmpty(),
+        check('paidFor', 'Payed for is required').not().isEmpty(),
         check('amount', 'Amount is required').not().isEmpty()
     ] 
 ], async (req, res) => {

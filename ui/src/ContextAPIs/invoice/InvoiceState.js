@@ -16,29 +16,7 @@ import setAuthToken from '../../Utils/setAuthToken'
 
 const InvoiceState = props => {
   const initialState = {
-    invoices: [
-              {
-                id: 1,
-                name: 'Ushahemba Shir',
-                paidFor: 'One month Subscription',
-                amount: '3000'
-                
-              },
-              {
-                id: 2,
-                name: 'Portia Osabade',
-                paidFor: 'Daily Subscription',
-                amount: '500'
-                
-              },
-              {
-                id: 3,
-                name: 'Ole Gunner Soldjaer',
-                paidFor: 'Hall renting',
-                amount: '40000'
-              
-              }
-            ],
+    invoices: '',
     current: null,
     filtered: null,
     error: null

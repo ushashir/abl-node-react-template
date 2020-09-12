@@ -7,13 +7,14 @@ import '../src/css/App.css';
 // forms
 import SignUp from './Components/Forms/SignUp';
 import Login from './Components/Forms/Login';
-import Booking from './Components/Forms/BookingForm';
+
 
 // pages
 import Home from "./Components/Pages/Home";
 import GetStarted from "./Components/Pages/GetStarted";
-import About from "./Components/Pages/About";
+import About from "./Components/Pages/Services";
 import Contact from './Components/Pages/Contact';
+import Booking from './Components/Pages/Booking';
 import PaymentDashboard from './Components/ViewControllers/invoices/PaymentDashboard';
 import Footer from "./Components/Pages/Footer";
 // utils
@@ -47,7 +48,7 @@ function App() {
                       <Route exact={true} path="/" component={Home} />
                       <PrivateRoute exact={true} path='/payment' component={PaymentDashboard} />
                       <Route path="/getstarted" component={GetStarted} />
-                      <Route path="/about" component={About} />
+                      <Route path="/services" component={About} />
                       <Route path="/contact" component={Contact} />
                       <Route path="/payment" component={PaymentDashboard} />
                       <Route path="/login" component={Login} />

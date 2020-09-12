@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const adminAuth = require('../middleware/auth');
+const auth = require('../middleware/auth');
 const { check, validationResult } = require('express-validator');
 const Inquiry = require('../models/Inquiry');
 
 // @route   get api/inquiries
 // @desc    get all inquiries
 // access   private - admin only
-router.get('/', adminAuth, async (req, res) => { 
+router.get('/', auth, async (req, res) => { 
     try {
         const inquiries = await Inquiry.find( {inquiries: req.inquiries}).sort( { date: -1 });
         res.json(inquiries);
@@ -34,18 +34,16 @@ router.post(
         return res.status(400).json({ errors: errors.array() });
     }
 
-    const  { name, email, message } = req.body;
+    const  { name, email, phoneNo, message } = req.body;
 
     try {
         const newInquiry = new Inquiry ({
             name, 
-            email, 
+            email,
+            phoneNo,
             message
         });
-
         const inquiry = await newInquiry.save();
-
-        
 
         res.json(inquiry);
     } catch (err) {
